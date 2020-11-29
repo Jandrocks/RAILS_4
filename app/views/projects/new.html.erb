@@ -1,5 +1,5 @@
 <div class= "pt-5">
-<%= form_with(url: "project/create", method: "get") do |f| %>
+<%= form_with(model: @project, url: "/projects/create", local: true) do |f| %>
    <div class="form-group">
        <%= f.text_field :name, placeholder: 'ingresa nombre', class: 'form-control' %>
     </div> 
@@ -7,16 +7,20 @@
         <%= f.text_area :description, placeholder: 'ingresa descripciòn', class: 'form-control' %>
     </div>
     <div class="form-group">
-        <%= f.date_select :start_on, class: 'form-control' %>
+        <%= f.date_select :starts_on, class: 'form-control' %>
     </div>
     <div class="form-group">
-        <%= f.date_select :finish_off, class: 'form-control' %>
+        <%= f.date_select :finish_on, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-        <%= f.select :status, options_for_select([["propuesta", "propuesta"], ["en progreso", "en progreso"],["terminado", "terminado"]]) %>
+        <%= f.select :status, options_for_select(@statuses) %>
     </div>
 
+    <div class="form-group">
+        <%= f.submit 'crea proyecto ', class: 'btn btn-primary' %>
+
+    </div>
 
 <% end %>
 </div>

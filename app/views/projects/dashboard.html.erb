@@ -1,0 +1,37 @@
+<div class="pt5">
+<form class ="form-inline justify-content-end w-100">
+   <select name="search" class="form-control">
+       <option value=""></option>
+        <option value="0">Propuesta</option>
+        <option value="1">en_progreso</option>
+        <option value="2">terminado</option>
+       
+   </select>   
+   <button type="submit">Buscar </button>
+</form> 
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope = "col">Nombre</th>
+                <th scope = "col">Descripcion</th>
+                <th scope = "col">Empieza</th>
+                <th scope = "col">Termina</th>
+                <th scope = "col">Status</th>
+                <th colspan = "3"></th>
+            </tr>
+        </thead>
+    <tbody>
+    <% @projects.each do |p| %>
+        <tr>
+            <td><%= p.name %></td>
+            <td><%= p.description %></td>
+            <td><%= p.starts_on %></td>
+            <td><%= p.finish_on %></td>
+            <td><%= p.status %></td>
+        </tr>
+    <% end %>
+    </tbody>
+
+    </table>
+</div>
